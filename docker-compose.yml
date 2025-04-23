@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    container_name: my_redis
+    ports:
+      - "6379:6379"
+
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile.celery
+    container_name: my_celery
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    volumes:
+      - .:/app
