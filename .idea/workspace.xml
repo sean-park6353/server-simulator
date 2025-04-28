@@ -4,8 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb5aed71-9f02-4a5d-9b18-4eb7c3dcccfd" name="Changes" comment="[Feat]우와아아2">
+    <list default="true" id="eb5aed71-9f02-4a5d-9b18-4eb7c3dcccfd" name="Changes" comment="[Feat]우와아아444">
+      <change afterPath="$PROJECT_DIR$/user_simulator/scenarios.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/DjangoProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/task.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/profit_simulator/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_simulator/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_simulator/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_simulator/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_simulator/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_simulator/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_simulator/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_simulator/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_simulator/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_simulator/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +164,7 @@
       <workItem from="1745032000706" duration="260000" />
       <workItem from="1745032268307" duration="383000" />
       <workItem from="1745214452329" duration="5023000" />
-      <workItem from="1745387119980" duration="2061000" />
+      <workItem from="1745387119980" duration="16155000" />
     </task>
     <task id="LOCAL-00001" summary="[Feat]우와아아2">
       <option name="closed" value="true" />
@@ -145,7 +174,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745387507567</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[Feat]우와아아333">
+      <option name="closed" value="true" />
+      <created>1745391465366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745391465366</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[Feat]우와아아444">
+      <option name="closed" value="true" />
+      <created>1745391472926</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745391472926</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +198,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[Feat]우와아아2" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Feat]우와아아2" />
+    <MESSAGE value="[Feat]우와아아333" />
+    <MESSAGE value="[Feat]우와아아444" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feat]우와아아444" />
   </component>
 </project>

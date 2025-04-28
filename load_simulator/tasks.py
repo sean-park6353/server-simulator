@@ -1,66 +1,36 @@
-# import time
-# import requests
-#
-# from celery import shared_task
-# from load_simulator.models import LoadTest
-#
-#
-# @shared_task
-# def run_load_test(load_test_id):
-#     try:
-#         load_test = LoadTest.objects.get(id=load_test_id)
-#     except LoadTest.DoesNotExist:
-#         return f"LoadTest with id {load_test_id} not found"
-#
-#     total_requests = load_test.rps * load_test.duration
-#     delay = 1.0 / load_test.rps if load_test.rps else 0.1  # 요청 간 시간 간격
-#
-#     success = 0
-#     failed = 0
-#
-#     for i in range(total_requests):
-#         try:
-#             if load_test.method == 'GET':
-#                 response = requests.get(
-#                     load_test.target_url,
-#                     headers=load_test.headers or {}
-#                 )
-#             elif load_test.method == 'POST':
-#                 response = requests.post(
-#                     load_test.target_url,
-#                     headers=load_test.headers or {},
-#                     json=load_test.payload or {}
-#                 )
-#             else:
-#                 failed += 1
-#                 continue
-#
-#             if response.status_code >= 200 and response.status_code < 300:
-#                 success += 1
-#             else:
-#                 failed += 1
-#
-#         except Exception as e:
-#             failed += 1
-#
-#         time.sleep(delay)
-#
-#     return {
-#         "total": total_requests,
-#         "success": success,
-#         "failed": failed,
-#     }
-
-
 from celery import shared_task
+import random
+import time
+from .models import Scenario, ScenarioStepOrder, LoadTest
+from .models import NotificationHistory
 
 @shared_task
-def test_queue_work(x, y):
-    print("이게 다 뭐냐")
-    return "🥕"
-
+def execute_scenario_task(scenario_id, user_count):
+    scenario = Scenario.objects.get(id=scenario_id)
+    step_orders = scenario.step_orders.select_related('step', 'depends_on')
+    results = []
+    for user_id in range(1, user_count + 1):
+        executed = []
+        executed_ids = set()
+        for so in step_orders:
+            if so.depends_on and so.depends_on.id not in executed_ids:
+                continue
+            if so.is_optional and random.random() > so.weight:
+                continue
+            executed.append(so.step.name)
+            executed_ids.add(so.id)
+        results.append({'user': user_id, 'actions': executed})
+    return results
 
 @shared_task
-def test_queue_work2(x):
-    print("이게 다 뭐냐2")
-    return "🥕🥕fsdfsdf"
+def run_load_test_task(load_test_id, user_id, count):
+    load_test = LoadTest.objects.get(id=load_test_id)
+    # 실제 요청 로직은 생략, 예시로 sleep
+    data = []
+    for i in range(count):
+        start = time.time()
+        # 여기에 requests 호출 etc.
+        time.sleep(random.random() * 0.1)
+        duration = time.time() - start
+        data.append({'virtual_user': user_id, 'latency': duration * 1000})
+    return data

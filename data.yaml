@@ -1,0 +1,16 @@
+service: board
+endpoints:
+  - name: write_post
+    method: POST
+    url: /posts/
+    payload:
+      title: "글쓰기"
+      body: "회원가입을 하세요"
+  - name: comment
+    method: POST
+    url: /posts/{{post_id}}/comments/
+    payload:
+      body: "{{random_sentence}}"
+  - name: like_post
+    method: POST
+    url: /posts/{{post_id}}/like
