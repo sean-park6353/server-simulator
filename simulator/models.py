@@ -6,6 +6,8 @@ class Sim(models.Model):
     name = models.CharField(max_length=100, help_text="가상 유저 이름")
     created_at = models.DateTimeField(auto_now_add=True)
 
+    objects = models.Manager()
+
     class Meta:
         db_table = 'sim'
 
@@ -38,6 +40,8 @@ class LoadTest(models.Model):
     concurrent_users = models.PositiveIntegerField(default=1, help_text="동시 사용자 수")
     requests_count = models.PositiveIntegerField(default=1, help_text="한 유저당 요청 수")
     created_at = models.DateTimeField(auto_now_add=True)
+
+    objects = models.Manager()
 
     class Meta:
         db_table = 'load_test'

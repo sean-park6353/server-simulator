@@ -5,15 +5,13 @@ from rest_framework.permissions import IsAuthenticated
 
 from .models import Scenario, ScenarioStep
 from .serializers import ScenarioSerializer, ScenarioStepSerializer
+from common.mixins import AutoUserAssignmentMixin
 
 
-class ScenarioCreateView(generics.CreateAPIView):
+class ScenarioCreateView(AutoUserAssignmentMixin, generics.CreateAPIView):
     queryset = Scenario.objects.all()
     serializer_class = ScenarioSerializer
     permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
 
 
 class ScenarioUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
@@ -48,13 +46,10 @@ class ScenarioWithStepsCreateView(APIView):
         return Response({'scenario_id': scenario.id}, status=201)
 
 
-class ScenarioStepCreateView(generics.CreateAPIView):
+class ScenarioStepCreateView(AutoUserAssignmentMixin, generics.CreateAPIView):
     queryset = ScenarioStep.objects.all()
     serializer_class = ScenarioStepSerializer
     permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
 
 
 class ScenarioStepUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
