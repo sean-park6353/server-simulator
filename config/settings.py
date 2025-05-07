@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'simulator',
     'scenario',
     'notification',
-    # 'user',
+    'user',
     'report',
     'common'
 ]
+
+AUTH_USER_MODEL = 'user.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -146,3 +148,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 DEFAULT_FROM_EMAIL = 'test@example.com'
+

@@ -1,7 +1,7 @@
 from celery import shared_task
 import random
 import time
-from .models import Scenario, ScenarioStepOrder, LoadTest
+from .models import Scenario, LoadTest
 from .models import NotificationHistory
 
 @shared_task

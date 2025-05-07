@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Sim, LoadTest
 from notification.models import NotificationTemplate, NotificationHistory
-from scenario.models import Scenario, ScenarioStep, ScenarioStepOrder
+from scenario.models import Scenario, ScenarioStep
 
 class SimSerializer(serializers.ModelSerializer):
     class Meta:
