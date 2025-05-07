@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'simulator',
     'scenario',
     'notification',
-    'user',
+    # 'user',
     'report',
     'common'
 ]

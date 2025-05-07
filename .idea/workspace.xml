@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb5aed71-9f02-4a5d-9b18-4eb7c3dcccfd" name="Changes" comment="[Feat] 앱 구조 변경">
-      <change afterPath="$PROJECT_DIR$/common/mixins.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scenario/serializers.py" afterDir="false" />
+    <list default="true" id="eb5aed71-9f02-4a5d-9b18-4eb7c3dcccfd" name="Changes" comment="[Feat] readme 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenario/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/scenario/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulator/migrations/0002_alter_loadtest_options_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulator/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +84,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.31111112",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -146,7 +153,7 @@
       <workItem from="1745032000706" duration="260000" />
       <workItem from="1745032268307" duration="383000" />
       <workItem from="1745214452329" duration="5023000" />
-      <workItem from="1745387119980" duration="27626000" />
+      <workItem from="1745387119980" duration="28840000" />
     </task>
     <task id="LOCAL-00001" summary="[Feat]우와아아2">
       <option name="closed" value="true" />
@@ -212,7 +219,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746593426135</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[Feat] 앱 구조 변경">
+      <option name="closed" value="true" />
+      <created>1746596257927</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746596257927</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[Feat] readme 추가">
+      <option name="closed" value="true" />
+      <created>1746596584345</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746596584345</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +248,7 @@
     <MESSAGE value="[Feat] django app 이름 변경" />
     <MESSAGE value="[Feat] user models.py 입력" />
     <MESSAGE value="[Feat] 앱 구조 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Feat] 앱 구조 변경" />
+    <MESSAGE value="[Feat] readme 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feat] readme 추가" />
   </component>
 </project>

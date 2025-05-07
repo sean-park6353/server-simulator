@@ -22,12 +22,7 @@ class LoadTest(models.Model):
         related_name='load_tests',
         help_text="이 테스트를 생성한 유저"
     )
-    scenario = models.ForeignKey(
-        'scenario.Scenario',
-        on_delete=models.CASCADE,
-        related_name='load_tests'
-    )
-    endpoint = models.CharField(help_text="부하 테스트할 대상 URL")
+    endpoint = models.CharField(max_length=255,help_text="부하 테스트 할 대상 URL")
     method = models.CharField(
         max_length=10,
         choices=[('GET', 'GET'), ('POST', 'POST'), ('PUT', 'PUT'), ('DELETE', 'DELETE')],
