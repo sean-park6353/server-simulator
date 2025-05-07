@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UserSimulatorConfig(AppConfig):
+class ServerSimulatorConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'user_simulator'
+    name = 'server_simulator'

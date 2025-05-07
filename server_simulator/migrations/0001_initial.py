@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('receiver', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='received_notifications', to=settings.AUTH_USER_MODEL)),
                 ('sender', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sent_notifications', to=settings.AUTH_USER_MODEL)),
-                ('notification_template', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='load_simulator.notificationtemplate')),
+                ('notification_template', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='server_simulator.notificationtemplate')),
             ],
         ),
         migrations.CreateModel(
@@ -93,9 +93,9 @@ class Migration(migrations.Migration):
                 ('is_optional', models.BooleanField(default=False)),
                 ('weight', models.FloatField(default=1.0)),
                 ('group', models.CharField(blank=True, max_length=50, null=True)),
-                ('depends_on', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='load_simulator.scenariosteporder')),
-                ('scenario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='step_orders', to='load_simulator.scenario')),
-                ('step', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='load_simulator.scenariostep')),
+                ('depends_on', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='server_simulator.scenariosteporder')),
+                ('scenario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='step_orders', to='server_simulator.scenario')),
+                ('step', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='server_simulator.scenariostep')),
             ],
             options={
                 'ordering': ['order'],
