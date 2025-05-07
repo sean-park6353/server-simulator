@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'simulator',
     'scenario',
     'notification',
-    'user',
+    # 'user',
     'report',
+    'common'
 ]
 
 REST_FRAMEWORK = {

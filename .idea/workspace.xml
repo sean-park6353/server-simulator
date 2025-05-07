@@ -4,28 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb5aed71-9f02-4a5d-9b18-4eb7c3dcccfd" name="Changes" comment="[Feat] user models.py 입력">
-      <change afterPath="$PROJECT_DIR$/simulator/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simulator/utils.py" afterDir="false" />
+    <list default="true" id="eb5aed71-9f02-4a5d-9b18-4eb7c3dcccfd" name="Changes" comment="[Feat] readme 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/celery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/scenario/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/migrations/0002_alter_loadtest_options_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/migrations/0002_alter_loadtest_options_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_simulator/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulator/migrations/0002_alter_loadtest_options_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +84,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.31111112",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -103,6 +96,11 @@
         <option name="myModuleName" value="server_simulator" />
       </console-settings>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scenario" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -155,7 +153,7 @@
       <workItem from="1745032000706" duration="260000" />
       <workItem from="1745032268307" duration="383000" />
       <workItem from="1745214452329" duration="5023000" />
-      <workItem from="1745387119980" duration="25234000" />
+      <workItem from="1745387119980" duration="28840000" />
     </task>
     <task id="LOCAL-00001" summary="[Feat]우와아아2">
       <option name="closed" value="true" />
@@ -205,7 +203,39 @@
       <option name="project" value="LOCAL" />
       <updated>1746589971092</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[Feat] 앱 구조 변경">
+      <option name="closed" value="true" />
+      <created>1746593421605</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746593421605</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[Feat] 앱 구조 변경">
+      <option name="closed" value="true" />
+      <created>1746593426135</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746593426135</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[Feat] 앱 구조 변경">
+      <option name="closed" value="true" />
+      <created>1746596257927</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746596257927</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[Feat] readme 추가">
+      <option name="closed" value="true" />
+      <created>1746596584345</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746596584345</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +247,8 @@
     <MESSAGE value="[Feat]우와아아444" />
     <MESSAGE value="[Feat] django app 이름 변경" />
     <MESSAGE value="[Feat] user models.py 입력" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Feat] user models.py 입력" />
+    <MESSAGE value="[Feat] 앱 구조 변경" />
+    <MESSAGE value="[Feat] readme 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feat] readme 추가" />
   </component>
 </project>

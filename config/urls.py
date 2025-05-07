@@ -21,5 +21,5 @@ urlpatterns = [
     path('api/', include('scenario.urls')),
     path('api/', include('simulator.urls')),
     path('api/', include('notification.urls')),
-    path('api/', include('user.urls')),
+    # path('api/', include('user.urls')),
 ]
