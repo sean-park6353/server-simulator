@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from scenario.serializers import SomeSerializer
 from .models import User
 
 class UserSignupSerializer(serializers.ModelSerializer):
