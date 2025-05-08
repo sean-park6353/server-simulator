@@ -62,7 +62,7 @@ class UserToken(models.Model):
     expired_at = models.DateTimeField(blank=True, null=True)
 
     def set_expired_at(self):
-        self.expired_at = self.created_at + timedelta(minutes=30)
+        self.expired_at = self.updated_at + timedelta(minutes=30)
 
     def __str__(self):
         return f"{self.user.email} - Token"

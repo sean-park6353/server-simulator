@@ -69,7 +69,7 @@ class UserLoginView(APIView):
                 'refresh_token': str(refresh),
             }
         )
-        user_token.set_expired_at()  # 만료시간을 6개월 뒤로 설정
+        user_token.set_expired_at()  # 만료시간을 30분 뒤로 설정
         user_token.save()
 
         # UserToken 테이블에 저장 또는 업데이트
