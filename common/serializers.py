@@ -7,7 +7,7 @@ class UserSignupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'name', 'phone_number', 'department', 'position', 'password']
+        fields = ['email', 'name', 'phone_number', 'password']
 
     def create(self, validated_data):
         password = validated_data.pop('password')
@@ -19,10 +19,10 @@ class UserSignupSerializer(serializers.ModelSerializer):
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'email', 'name', 'phone_number', 'department', 'position', 'date_joined', 'last_login']
+        fields = ['id', 'email', 'name', 'phone_number', 'date_joined', 'last_login']
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['name', 'phone_number', 'department', 'position']
+        fields = ['name', 'phone_number']
