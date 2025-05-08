@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+from datetime import timedelta
 
 # Create your models here.
 from django.contrib.auth.models import (
@@ -7,7 +9,7 @@ from django.contrib.auth.models import (
     BaseUserManager
 )
 from django.db import models
-
+from django.conf import settings
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -45,3 +47,22 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+
+class UserToken(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='token'
+    )
+    access_token = models.TextField()
+    refresh_token = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    expired_at = models.DateTimeField(blank=True, null=True)
+
+    def set_expired_at(self):
+        self.expired_at = timezone.now() + timedelta(minutes=30)
+
+    def __str__(self):
+        return f"{self.user.email} - Token"
