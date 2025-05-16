@@ -2,10 +2,11 @@ from django.urls import path
 from rest_framework_simplejwt.views import TokenRefreshView
 from user.views import UserSignupView, UserDetailView, UserLoginView
 
-user_list = UserSignupView.as_view({'post': 'create', 'delete': 'destroy'})
+user_list = UserSignupView.as_view({'post': 'create'})
 user_detail = UserDetailView.as_view({
     'get': 'retrieve', 
-    'patch': 'partial_update'
+    'patch': 'partial_update',
+    'delete': 'destroy'
 })
 
 urlpatterns = [

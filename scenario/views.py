@@ -2,57 +2,72 @@ from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import status
+
 
 from .models import Scenario, ScenarioStep
 from .serializers import ScenarioSerializer, ScenarioStepSerializer
 from common.mixins import AutoUserAssignmentMixin
 
 
-class ScenarioCreateView(AutoUserAssignmentMixin, generics.CreateAPIView):
+class ScenarioView(generics.ListCreateAPIView):
     queryset = Scenario.objects.all()
     serializer_class = ScenarioSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        return Scenario.objects.filter(user=self.request.user)
 
-class ScenarioUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+    def create(self, request, *args, **kwargs):
+        scenario_name = request.data.get('name')
+        scenario_description = request.data.get('description')
+
+        scenario = Scenario.objects.create(
+            name=scenario_name,
+            description=scenario_description,
+            user=request.user
+        )
+
+        step_name = request.data.get('stepname')
+        method = request.data.get('method')
+        endpoint = request.data.get('endpoint')
+        step_description = request.data.get('stepdescription')
+
+        ScenarioStep.objects.create(
+            scenario=scenario,
+            stepname=step_name,
+            method=method,
+            endpoint=endpoint,
+            stepdescription=step_description,
+            user=request.user
+        )
+
+        return Response(
+            {"message": "시나리오가 생성되었습니다."},
+            status=status.HTTP_201_CREATED
+        )
+class ScenarioDeleteView(APIView):
     queryset = Scenario.objects.all()
     serializer_class = ScenarioSerializer
     permission_classes = [IsAuthenticated]
 
+    def delete(self, request, pk):
+        try:
+            scenario = Scenario.objects.get(pk=pk)
+        except Scenario.DoesNotExist:
+            return Response({"message": "시나리오가 존재하지 않습니다."}, status=status.HTTP_404_NOT_FOUND)
 
-class ScenarioWithStepsCreateView(APIView):
-    permission_classes = [IsAuthenticated]
+        ScenarioStep.objects.filter(scenario=scenario).delete()
+        scenario.delete()
 
-    def post(self, request):
-        scenario_data = request.data.get('scenario')
-        steps_data = request.data.get('steps', [])
+        return Response({"message": "시나리오와 관련 스텝이 삭제되었습니다."}, status=status.HTTP_200_OK)
 
-        scenario_serializer = ScenarioSerializer(data=scenario_data)
-        scenario_serializer.is_valid(raise_exception=True)
-        scenario = scenario_serializer.save(user=request.user)
+# class ScenarioStepUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+#     queryset = ScenarioStep.objects.all()
+#     serializer_class = ScenarioStepSerializer
+#     permission_classes = [IsAuthenticated]
 
-        for step in steps_data:
-            ScenarioStep.objects.create(
-                scenario=scenario,
-                name=step['name'],
-                method=step['method'],
-                endpoint=step['endpoint'],
-                headers=step.get('headers'),
-                body=step.get('body'),
-                user=request.user,
-                description=step.get('description', '')
-            )
-
-        return Response({'scenario_id': scenario.id}, status=201)
-
-
-class ScenarioStepCreateView(AutoUserAssignmentMixin, generics.CreateAPIView):
-    queryset = ScenarioStep.objects.all()
-    serializer_class = ScenarioStepSerializer
-    permission_classes = [IsAuthenticated]
-
-
-class ScenarioStepUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
-    queryset = ScenarioStep.objects.all()
-    serializer_class = ScenarioStepSerializer
-    permission_classes = [IsAuthenticated]
+# class ScenarioUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+#     queryset = Scenario.objects.all()
+#     serializer_class = ScenarioSerializer
+#     permission_classes = [IsAuthenticated]

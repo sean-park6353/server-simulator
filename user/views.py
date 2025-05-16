@@ -38,6 +38,7 @@ class UserLoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
+        environment = request.data.get('environment', 'development')  # 기본값은 'development'
 
         if not email or not password:
             return Response({'error': 'Email and password are required.'}, status=status.HTTP_400_BAD_REQUEST)
@@ -69,7 +70,7 @@ class UserLoginView(APIView):
                 'refresh_token': str(refresh),
             }
         )
-        user_token.set_expired_at()  # 만료시간을 30분 뒤로 설정
+        user_token.set_expired_at(environment=environment)  # 만료시간을 30분 뒤로 설정
         user_token.save()
 
         # UserToken 테이블에 저장 또는 업데이트

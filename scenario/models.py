@@ -27,12 +27,12 @@ class ScenarioStep(models.Model):
         on_delete=models.CASCADE,
         related_name='steps'
     )
-    name = models.CharField(max_length=100)
+    stepname = models.CharField(max_length=100)
     method = models.CharField(max_length=10)
     endpoint = models.CharField(max_length=255)
     headers = models.JSONField(blank=True, null=True)
     body = models.JSONField(blank=True, null=True)
-    description = models.TextField(blank=True)
+    stepdescription = models.TextField(blank=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
