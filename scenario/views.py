@@ -6,9 +6,11 @@ from rest_framework import status
 
 
 from .models import Scenario, ScenarioStep
+from simulator.models import Sim
 from .serializers import ScenarioSerializer, ScenarioStepSerializer
 from common.mixins import AutoUserAssignmentMixin
 
+import random
 
 class ScenarioView(generics.ListCreateAPIView):
     queryset = Scenario.objects.all()
@@ -22,10 +24,17 @@ class ScenarioView(generics.ListCreateAPIView):
         scenario_name = request.data.get('name')
         scenario_description = request.data.get('description')
 
+        sims = Sim.objects.filter(user=request.user)
+        if not sims.exists():
+            return Response({"error": "해당 유저의 Sim이 없습니다."}, status=400)
+
+        sim = random.choice(sims)
+
         scenario = Scenario.objects.create(
             name=scenario_name,
             description=scenario_description,
-            user=request.user
+            user=request.user,
+            sim=sim
         )
 
         step_name = request.data.get('stepname')
@@ -61,3 +70,13 @@ class ScenarioDeleteView(APIView):
         scenario.delete()
 
         return Response({"message": "시나리오와 관련 스텝이 삭제되었습니다."}, status=status.HTTP_200_OK)
+
+# class ScenarioStepUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+#     queryset = ScenarioStep.objects.all()
+#     serializer_class = ScenarioStepSerializer
+#     permission_classes = [IsAuthenticated]
+
+# class ScenarioUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+#     queryset = Scenario.objects.all()
+#     serializer_class = ScenarioSerializer
+#     permission_classes = [IsAuthenticated]

@@ -10,8 +10,16 @@ class Scenario(models.Model):
         on_delete=models.CASCADE,
         related_name='scenarios'
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    sim = models.ForeignKey(
+        'simulator.Sim',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='executed_scenarios',
+        help_text='시나리오를 실행한 가상 유저'
+    )
 
+    created_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
 
     class Meta:
