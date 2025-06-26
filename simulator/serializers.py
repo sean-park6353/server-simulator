@@ -6,7 +6,7 @@ from scenario.models import Scenario, ScenarioStep
 class SimSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sim
-        fields = ['id', 'name', 'created_at']
+        fields = ['id', 'created_at']
         read_only_fields = ['id', 'created_at']
 
 

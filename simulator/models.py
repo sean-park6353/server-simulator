@@ -1,11 +1,16 @@
 from django.db import models
 from django.conf import settings
 
-
 class Sim(models.Model):
-    name = models.CharField(max_length=100, help_text="가상 유저 이름")
-    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='sims',
+        help_text="이 가상 유저를 생성한 실제 유저",
+        default=1
+    )
 
+    created_at = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
 
     class Meta:
@@ -14,6 +19,37 @@ class Sim(models.Model):
     def __str__(self):
         return self.name
 
+class SimulationRun(models.Model):
+    sim = models.ForeignKey(
+        Sim,
+        on_delete=models.CASCADE,
+        related_name='runs',
+        help_text="실행된 가상 유저"
+    )
+    scenario = models.ForeignKey(
+        'scenario.Scenario',
+        on_delete=models.CASCADE,
+        related_name='simulation_runs',
+        help_text="실행된 시나리오"
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='simulation_runs',
+        help_text="이 실행을 시작한 유저"
+    )
+    started_at = models.DateTimeField(auto_now_add=True, help_text="시뮬레이션 시작 시각")
+    ended_at = models.DateTimeField(null=True, blank=True, help_text="시뮬레이션 종료 시각")
+    status = models.CharField(max_length=20, default='running', help_text="시뮬레이션 상태")
+
+    objects = models.Manager()
+
+    class Meta:
+        db_table = 'simulation_run'
+        ordering = ['-started_at']
+
+    def __str__(self):
+        return f"{self.sim.name} - {self.scenario.name} ({self.status})"
 
 class LoadTest(models.Model):
     user = models.ForeignKey(
