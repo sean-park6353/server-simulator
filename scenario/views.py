@@ -13,6 +13,7 @@ from .serializers import ScenarioSerializer
 from common.mixins import AutoUserAssignmentMixin
 
 import random
+import random
 
 class ScenarioView(generics.ListCreateAPIView):
     queryset = Scenario.objects.all()
@@ -102,6 +103,15 @@ class ScenarioDeleteView(APIView):
 
         return Response({"message": "시나리오와 관련 스텝이 삭제되었습니다."}, status=status.HTTP_200_OK)
 
+# class ScenarioStepUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+#     queryset = ScenarioStep.objects.all()
+#     serializer_class = ScenarioStepSerializer
+#     permission_classes = [IsAuthenticated]
+
+# class ScenarioUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
+#     queryset = Scenario.objects.all()
+#     serializer_class = ScenarioSerializer
+#     permission_classes = [IsAuthenticated]
 # class ScenarioStepUpdateDestroyView(generics.UpdateAPIView, generics.DestroyAPIView):
 #     queryset = ScenarioStep.objects.all()
 #     serializer_class = ScenarioStepSerializer
