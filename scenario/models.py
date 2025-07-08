@@ -33,19 +33,34 @@ class ScenarioStep(models.Model):
     scenario = models.ForeignKey(
         Scenario,
         on_delete=models.CASCADE,
-        related_name='steps'
+        related_name='steps',
+        null=True,           # DB 상 null 허용
+        blank=True           # Form/Serializer 상 필수 아님
     )
     stepname = models.CharField(max_length=100)
+
+    HTTP_METHOD_CHOICES = [
+        ("GET", "GET"),
+        ("POST", "POST"),
+        ("PUT", "PUT"),
+        ("DELETE", "DELETE"),
+        ("PATCH", "PATCH"),
+    ]
     method = models.CharField(max_length=10)
     endpoint = models.CharField(max_length=255)
     headers = models.JSONField(blank=True, null=True)
     body = models.JSONField(blank=True, null=True)
     stepdescription = models.TextField(blank=True)
+
+    order = models.PositiveIntegerField(default=0)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='scenario_steps'
     )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     objects = models.Manager()
 
