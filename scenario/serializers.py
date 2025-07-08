@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Scenario, ScenarioStep, ScenarioStepDependency
+from .models import Scenario, ScenarioStep
 
 
 class ScenarioSerializer(serializers.ModelSerializer):
@@ -9,11 +9,16 @@ class ScenarioSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'user', 'created_at']
 
 
-class ScenarioStepSerializer(serializers.ModelSerializer):
+class ScenarioStepBulkSerializer(serializers.ModelSerializer):
     class Meta:
         model = ScenarioStep
-        fields = [
-            'id', 'scenario', 'name', 'method', 'endpoint',
-            'headers', 'body', 'description', 'user', 'order'
-        ]
-        read_only_fields = ['id', 'user']
+        fields = '__all__'
+        read_only_fields = ['user_id', 'scenario', 'created_at', 'updated_at']
+
+    # class Meta:
+    #     model = ScenarioStep
+    #     fields = [
+    #         'id', 'scenario', 'name', 'method', 'endpoint',
+    #         'headers', 'body', 'description', 'user', 'order'
+    #     ]
+    #     read_only_fields = ['id', 'user']
